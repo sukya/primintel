@@ -13,8 +13,21 @@ nohup.out
 tmp
 plugins.json
 *.log
-logs/
-workspace
+# Workspace & Data (Ignore runtime data but keep core rules)
+workspace/*
+!workspace/AGENT.md
+!workspace/RULE.md
+!workspace/USER.md
+!workspace/skills/
+workspace/skills/*
+!workspace/skills/zhipu-cogview-image-creator/
+workspace/memory/
+workspace/logs/
+workspace/tmp/
+workspace/websites/
+workspace/workspace_temp/
+workspace/test_dir/
+workspace/-p/
 config.yaml
 user_datas.pkl
 chatgpt_tool_hub/
