@@ -84,3 +84,11 @@ python3 app.py
 ---
 
 感谢所有为开源 AI 生态做出贡献的先驱项目。
+
+---
+
+## 📬 联系与反馈
+
+- **技术支持**：如有 Bug 反馈、功能建议或技术交流，请提交 [Issues](https://github.com/YOUR_GITHUB_ID/primintel/issues)。
+- **商业合作**：关于商业化部署、定制开发或授权咨询，请查看我的 [GitHub Profile](https://github.com/YOUR_GITHUB_ID) 获取联系方式。
+- **开发者社区**：如果您对本项目感兴趣，欢迎关注并给予项目一个 ⭐ **Star**，您的支持是我们持续迭代的最大动力。
