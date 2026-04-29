@@ -39,7 +39,7 @@
 
 ```bash
 # 1. 克隆配置 (或手动下载 docker-compose.deploy.yml)
-git clone https://github.com/YOUR_GITHUB_ID/primintel.git
+git clone https://github.com/sukya/primintel.git
 cd primintel
 
 # 2. 准备配置文件
@@ -89,6 +89,10 @@ python3 app.py
 
 ## 📬 联系与反馈
 
-- **技术支持**：如有 Bug 反馈、功能建议或技术交流，请提交 [Issues](https://github.com/YOUR_GITHUB_ID/primintel/issues)。
-- **商业合作**：关于商业化部署、定制开发或授权咨询，请查看我的 [GitHub Profile](https://github.com/YOUR_GITHUB_ID) 获取联系方式。
+- **技术支持**：如有 Bug 反馈、功能建议或技术交流，请提交 [Issues](https://github.com/sukya/primintel/issues)。
+- **商业合作**：如果您在寻找企业级部署方案、定制化智能体开发或有商业合作意向，欢迎联系：
+  - **Email**: [847879808@qq.com](mailto:847879808@qq.com)
+
 - **开发者社区**：如果您对本项目感兴趣，欢迎关注并给予项目一个 ⭐ **Star**，您的支持是我们持续迭代的最大动力。
+
+
