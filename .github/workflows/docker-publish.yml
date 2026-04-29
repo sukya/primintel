@@ -28,7 +28,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: sukeyang/ragentos
+          images: ${{ secrets.DOCKER_USERNAME }}/primintel
 
       - name: Build and Push
         uses: docker/build-push-action@v5
@@ -37,7 +37,7 @@ jobs:
           file: Dockerfile.deploy
           push: true
           tags: |
-            sukeyang/ragentos:latest
+            ${{ secrets.DOCKER_USERNAME }}/primintel:latest
             ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
