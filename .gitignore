@@ -20,6 +20,9 @@ workspace/*
 !workspace/USER.md
 !workspace/skills/
 workspace/skills/*
+workspace/skills/*/outputs/
+workspace/skills/*/memory/
+workspace/skills/*/storage/
 !workspace/skills/zhipu-cogview-image-creator/
 workspace/memory/
 workspace/logs/
