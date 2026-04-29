@@ -1,0 +1,70 @@
+# Custom Deployment Dockerfile for Modified CowAgent
+FROM python:3.10-slim-bullseye
+
+LABEL maintainer="antigravity@cowagent"
+ARG TZ='Asia/Shanghai'
+
+ENV BUILD_PREFIX=/app
+WORKDIR ${BUILD_PREFIX}
+
+# 是否使用阿里云镜像源 (默认 false, 在 GitHub 构建时应保持 false)
+ARG USE_ALIYUN_MIRROR=false
+
+RUN if [ "$USE_ALIYUN_MIRROR" = "true" ]; then \
+    sed -i "s/deb.debian.org/mirrors.aliyun.com/g" /etc/apt/sources.list && \
+    sed -i "s/security.debian.org/mirrors.aliyun.com/g" /etc/apt/sources.list && \
+    pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/; \
+    fi
+
+# Aliyun/China optimized playwright download host
+ARG PLAYWRIGHT_DOWNLOAD_HOST=https://cdn.npmmirror.com/binaries/playwright
+ENV PLAYWRIGHT_DOWNLOAD_HOST=${PLAYWRIGHT_DOWNLOAD_HOST}
+# 全局浏览器内核安装路径
+ENV PLAYWRIGHT_BROWSERS_PATH=/usr/local/share/playwright
+
+
+# Install system dependencies (ffmpeg for voice, playwright for browser, etc.)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    ffmpeg \
+    libavcodec-extra \
+    sed \
+    libnss3 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdrm2 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxfixes3 \
+    libxrandr2 \
+    libgbm1 \
+    libasound2 \
+    libpango-1.0-0 \
+    libcairo2 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy local code into image
+COPY . ${BUILD_PREFIX}
+
+# Fix Windows line endings (CRLF -> LF) for all shell scripts
+RUN find ${BUILD_PREFIX} -type f -name "*.sh" -exec sed -i 's/\r$//' {} +
+
+# Install dependencies
+RUN mkdir -p ${PLAYWRIGHT_BROWSERS_PATH} \
+    && /usr/local/bin/python -m pip install --no-cache --upgrade pip \
+    && pip install --no-cache -r requirements.txt \
+    && pip install --no-cache -r requirements-optional.txt \
+    && pip install --no-cache playwright==1.48.0 \
+    && python -m playwright install chromium \
+    && pip install --no-cache -e .
+
+# Create non-root user and home directory
+RUN groupadd -r agent && useradd -r -g agent -s /bin/bash -m -d /home/agent agent \
+    && chown -R agent:agent ${BUILD_PREFIX} /home/agent /usr/local/lib ${PLAYWRIGHT_BROWSERS_PATH}
+
+USER agent
+
+# Use existing entrypoint
+ENTRYPOINT ["/bin/bash", "docker/entrypoint.sh"]

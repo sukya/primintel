@@ -1,0 +1,11 @@
+{
+    "auth_cookies": [
+        {
+            "cookie_U": "13Q16YXZVpaStvUG3v9vWYuoEWVt_hhOuffEEr7U_UN5Bet7Ao2gBdaINIr-zbhp9w-abuuAncgmLlvO6yfUpLg1B5qPYzHG4P9bicSirDXIqScvr6F-euOerY63aViQmiplJiafpukqIUyPA9HZJyXOOtjOv2Sh3sEFYTUlOJx1IBlYMAs63zA8V2_MvUngJiZStV67dAEbGwr33whlXGQ",
+            "status": "active",
+            "last_used": 1776854837.3601403
+        }
+    ],
+    "default_model": "dalle3",
+    "default_aspect": "landscape"
+}

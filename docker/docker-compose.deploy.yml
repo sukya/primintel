@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  primintel:
+    build:
+      context: ..
+      dockerfile: Dockerfile.deploy
+      args:
+        - USE_ALIYUN_MIRROR=true
+    container_name: primintel-modified
+    restart: always
+    ports:
+      - "9899:9900"
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ../config.json:/app/config.json
+      - ../workspace:/app/workspace
+      - ../skills:/app/skills
+    networks:
+      - agent-net
+
+networks:
+  agent-net:
+    driver: bridge

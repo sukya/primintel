@@ -1,0 +1,4 @@
+{
+    "auth_cookie_U": "1jN9uxHdCCcf4tEZZDgG6jaXCaE47w_1a8zkazn9X2hbTDwGRmx6mblJjFQunmFK0WuuZ_LEQcLC-Qnjgc1KK3xF-9xIifww-K1LvSSNipFu62kEN9IF2ljyRGfM6KthzOK6pM5H7MJJ53cpUGoKf-m4TStRrEJVQJ6qMFD3AMKBtIT5vLk73Qtm6SMk3LaM-hPR94t91F3oZSET2Y3zcUg",
+    "description": "通过环境变量注入时请设置: export BING_AUTH_COOKIE_U=your_cookie"
+}

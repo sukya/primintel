@@ -1,0 +1,78 @@
+{
+    "api_key": "2cdada00b05a4b179b62f8a4bbdcfcf1.eEDuZjpnLtVsg0H6",
+    "model_name": "cogvideox-flash",
+    "size": "1280x720",
+    "watermark_enabled": false,
+    "_schema": {
+        "api_key": {
+            "type": "string",
+            "label": "Zhipu API Key",
+            "placeholder": "Leave empty to use global key",
+            "order": 1
+        },
+        "model_name": {
+            "type": "select",
+            "label": "模型名称 (Model)",
+            "options": [
+                {
+                    "value": "cogvideox-flash",
+                    "label": "CogVideoX-Flash (永久免费)"
+                },
+                {
+                    "value": "cogvideox-2",
+                    "label": "CogVideoX-2 (付费/图生视频强)"
+                },
+                {
+                    "value": "cogvideox-3",
+                    "label": "CogVideoX-3 (最高画质/10s)"
+                }
+            ],
+            "order": 2
+        },
+        "size": {
+            "type": "select",
+            "label": "分辨率 (Resolution)",
+            "options": [
+                {
+                    "value": "720x480",
+                    "label": "720x480"
+                },
+                {
+                    "value": "1024x1024",
+                    "label": "1024x1024 (1:1)"
+                },
+                {
+                    "value": "1280x720",
+                    "label": "1280x720 (720P)"
+                },
+                {
+                    "value": "720x1280",
+                    "label": "720x1280 (竖屏)"
+                },
+                {
+                    "value": "1920x1080",
+                    "label": "1920x1080 (1080P)"
+                },
+                {
+                    "value": "1080x1920",
+                    "label": "1080x1920 (竖屏)"
+                },
+                {
+                    "value": "2048x1080",
+                    "label": "2048x1080"
+                },
+                {
+                    "value": "3840x2160",
+                    "label": "3840x2160 (4K)"
+                }
+            ],
+            "order": 3
+        },
+        "watermark_enabled": {
+            "type": "boolean",
+            "label": "启用水印 (Watermark)",
+            "hint": "需签署智谱免责声明后关闭方有效",
+            "order": 4
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "model_name": "cogview-3-flash",
+    "api_key": "2cdada00b05a4b179b62f8a4bbdcfcf1.eEDuZjpnLtVsg0H6",
+    "user_id": "22751776855976778",
+    "size": "1024x1024",
+    "_schema": {
+        "model_name": {
+            "type": "select",
+            "options": [
+                "cogview-3-flash",
+                "cogview-3",
+                "cogview-3-plus"
+            ]
+        },
+        "api_key": {
+            "type": "text"
+        },
+        "user_id": {
+            "type": "text",
+            "hint": "签署去水印声明后在此填入标识符"
+        },
+        "size": {
+            "type": "conditional",
+            "depends_on": "model_name",
+            "cases": {
+                "cogview-3-flash": {
+                    "type": "select",
+                    "options": [
+                        "1024x1024",
+                        "768x1344",
+                        "864x1152",
+                        "1344x768",
+                        "1152x864",
+                        "1440x720",
+                        "720x1440"
+                    ]
+                },
+                "default": {
+                    "type": "text",
+                    "placeholder": "512-2048 (e.g. 1024x1024)",
+                    "hint": "512-2048, Plus 需被 32 整除"
+                }
+            }
+        }
+    }
+}

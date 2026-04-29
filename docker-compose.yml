@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  primintel:
+    image: sukeyang/primintel:latest
+    container_name: primintel
+    restart: always
+    ports:
+      - "9899:9900"
+    volumes:
+      - ./config.json:/app/config.json
+      - ./workspace:/app/workspace
+    environment:
+      - TZ=Asia/Shanghai
+    # 备注：运行前请确保本地已有 config.json 文件
