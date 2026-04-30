@@ -34,15 +34,20 @@
 
 ## 🚀 快速开始
 
-### 1. Docker 部署 (推荐)
-这是部署 Primintel 最快的方式，建议在生产环境或云服务器上使用：
+### 1. 极速部署 (推荐)
+如果您已有 Docker 环境，只需两步即可完成生产级部署：
 
 ```bash
-# 1. 克隆配置 (或手动下载 docker-compose.deploy.yml)
-git clone https://github.com/sukya/primintel.git
-cd primintel
+# 1. 下载部署配置文件
+wget https://raw.githubusercontent.com/sukya/primintel/main/docker/docker-compose.deploy.yml -O docker-compose.yml
 
-# 2. 准备配置文件
+# 2. 启动容器
+docker-compose up -d
+```
+> **注意**：启动前请确保本地目录下已有 `config.json` 配置文件。
+
+### 2. 源码构建部署
+如果您需要进行二次开发，请使用以下方式：
 cp config-template.json config.json
 # 编辑 config.json 填入你的 API Key
 

@@ -2,21 +2,17 @@ version: '3.8'
 
 services:
   primintel:
-    build:
-      context: ..
-      dockerfile: Dockerfile.deploy
-      args:
-        - USE_ALIYUN_MIRROR=true
-    container_name: primintel-modified
+    image: sukya/primintel:latest
+    container_name: primintel
     restart: always
     ports:
-      - "9899:9900"
+      - "9900:9900"
     environment:
       - TZ=Asia/Shanghai
     volumes:
-      - ../config.json:/app/config.json
-      - ../workspace:/app/workspace
-      - ../skills:/app/skills
+      - ./config.json:/app/config.json
+      - ./workspace:/app/workspace
+      - ./skills:/app/skills
     networks:
       - agent-net
 
