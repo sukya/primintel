@@ -38,14 +38,18 @@
 如果您已有 Docker 环境，只需两步即可完成生产级部署：
 
 ```bash
-# 1. 下载部署配置文件
+# 1. 下载部署配置文件与模板
 wget https://raw.githubusercontent.com/sukya/primintel/main/docker/docker-compose.deploy.yml -O docker-compose.yml
+wget https://raw.githubusercontent.com/sukya/primintel/main/config-template.json -O config.json
 
-# 2. 启动容器
+# 2. 编辑配置
+# 请使用 vim 或 nano 编辑 config.json，填入您的 API Key
+vi config.json
+
+# 3. 启动容器
 docker compose up -d
 ```
-> **💡 国内加速提示**：如果您在阿里云等国内环境拉取 `docker.io` 镜像超时，建议将 `docker-compose.yml` 中的 `image` 修改为 GitHub 镜像源：`ghcr.io/sukya/primintel:latest`。
-> **注意**：启动前请确保本地目录下已有 `config.json` 配置文件。
+> **💡 小贴士**：如果您在阿里云等国内环境拉取镜像超时，请确保 `docker-compose.yml` 中的 `image` 字段使用的是 `ghcr.io` 地址。
 
 ### 2. 源码构建部署
 如果您需要进行二次开发，请使用以下方式：
