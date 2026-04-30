@@ -307,9 +307,6 @@ function New-ConfigFile {
         voice_reply_voice         = $false
         speech_recognition        = $true
         group_speech_recognition  = $false
-        use_linkai                = $UseLinkai
-        linkai_api_key            = ""
-        linkai_app_code           = ""
         agent                     = $true
         agent_max_context_tokens  = 40000
         agent_max_context_turns   = 30
@@ -326,7 +323,7 @@ function New-ConfigFile {
         ARK_KEY      = "ark_api_key"
         DASHSCOPE_KEY = "dashscope_api_key"
         MINIMAX_KEY  = "minimax_api_key"
-        LINKAI_KEY   = "linkai_api_key"
+        PRIMINTEL_KEY = "agent_gateway_key"
     }
     if ($keyMap.ContainsKey($KeyName)) {
         $config[$keyMap[$KeyName]] = $ApiKey

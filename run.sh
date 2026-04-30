@@ -518,8 +518,6 @@ create_config_file() {
     MINIMAX_KEY="${MINIMAX_KEY:-}" \
     DEEPSEEK_KEY="${DEEPSEEK_KEY:-}" \
     DEEPSEEK_BASE="${DEEPSEEK_BASE:-https://api.deepseek.com/v1}" \
-    USE_LINKAI="${USE_LINKAI:-false}" \
-    LINKAI_KEY="${LINKAI_KEY:-}" \
     FEISHU_APP_ID="${FEISHU_APP_ID:-}" \
     FEISHU_APP_SECRET="${FEISHU_APP_SECRET:-}" \
     WEB_PORT="${WEB_PORT:-}" \
@@ -559,9 +557,6 @@ base = {
     'voice_reply_voice': False,
     'speech_recognition': True,
     'group_speech_recognition': False,
-    'use_linkai': e('USE_LINKAI') == 'true',
-    'linkai_api_key': e('PRIMINTEL_KEY', ''),
-    'linkai_app_code': '',
     'agent': True,
     'agent_max_context_tokens': 40000,
     'agent_max_context_turns': 30,
