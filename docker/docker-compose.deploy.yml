@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   primintel:
-    image: sukya/primintel:latest
+    image: ghcr.io/sukya/primintel:latest
     container_name: primintel
     restart: always
     ports:

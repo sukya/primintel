@@ -42,8 +42,9 @@
 wget https://raw.githubusercontent.com/sukya/primintel/main/docker/docker-compose.deploy.yml -O docker-compose.yml
 
 # 2. 启动容器
-docker-compose up -d
+docker compose up -d
 ```
+> **💡 国内加速提示**：如果您在阿里云等国内环境拉取 `docker.io` 镜像超时，建议将 `docker-compose.yml` 中的 `image` 修改为 GitHub 镜像源：`ghcr.io/sukya/primintel:latest`。
 > **注意**：启动前请确保本地目录下已有 `config.json` 配置文件。
 
 ### 2. 源码构建部署
@@ -52,7 +53,7 @@ cp config-template.json config.json
 # 编辑 config.json 填入你的 API Key
 
 # 3. 启动服务
-docker-compose -f docker/docker-compose.deploy.yml up -d
+docker compose -f docker/docker-compose.deploy.yml up -d
 ```
 
 ### 2. 源码本地运行
