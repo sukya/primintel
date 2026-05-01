@@ -11,8 +11,6 @@ services:
       - TZ=Asia/Shanghai
     volumes:
       - ./config.json:/app/config.json
-      - ./workspace:/app/workspace
-      - ./skills:/app/skills
     networks:
       - agent-net
 

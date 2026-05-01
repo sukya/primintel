@@ -254,10 +254,7 @@ class AgentPlugin(Plugin):
         return
 
     def create_llm_model(self, model_name) -> LLMModel:
-        if conf().get("use_linkai"):
-            api_base = "https://api.link-ai.tech/v1"
-            api_key = conf().get("linkai_api_key")
-        elif model_name.startswith(("gpt", "text-davinci", "o1", "o3")):
+        if model_name.startswith(("gpt", "text-davinci", "o1", "o3")):
             api_base = conf().get("open_ai_api_base") or "https://api.openai.com/v1"
             api_key = conf().get("open_ai_api_key")
         elif model_name.startswith("claude"):
