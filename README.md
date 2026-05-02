@@ -46,6 +46,9 @@ wget https://raw.githubusercontent.com/sukya/primintel/main/config-template.json
 # 请使用 vim 或 nano 编辑 config.json，填入您的 API Key
 vi config.json
 
+# (可选) 如果您希望在 Web 控制台在线修改并保存配置，请执行：
+chmod 666 config.json
+
 # 3. 启动容器
 docker compose up -d
 ```
