@@ -1623,16 +1623,14 @@ class SkillsHandler:
             manager = SkillManager(custom_dir=os.path.join(workspace_root, "skills"))
             service = SkillService(manager)
             skills = service.query()
-            cow_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
             for sk in skills:
                 name = sk.get("name")
-                # Check if skill has a config file
-                config_path = os.path.join(cow_root, "skills", name, "resources", "config.json")
-                if not os.path.exists(config_path):
-                    config_path = os.path.join(cow_root, "workspace", "skills", name, "resources", "config.json")
-                
-                if os.path.exists(config_path):
-                    sk["configurable"] = True
+                entry = manager.get_skill(name)
+                if entry:
+                    # Use the skill's actual physical base directory to check for config.json
+                    config_path = os.path.join(entry.skill.base_dir, "resources", "config.json")
+                    if os.path.exists(config_path):
+                        sk["configurable"] = True
             return json.dumps({"status": "success", "skills": skills}, ensure_ascii=False)
         except Exception as e:
             logger.error(f"[WebChannel] Skills API error: {e}")

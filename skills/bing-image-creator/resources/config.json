@@ -7,5 +7,33 @@
         }
     ],
     "default_model": "dalle3",
-    "default_aspect": "landscape"
+    "default_aspect": "landscape",
+    "_schema": {
+        "auth_cookies": {
+            "type": "json",
+            "label": "Auth Cookies",
+            "hint": "Bing Auth Cookies (List of objects with cookie_U)",
+            "order": 1
+        },
+        "default_model": {
+            "type": "select",
+            "label": "默认模型 (Model)",
+            "options": [
+                {"value": "dalle3", "label": "DALL-E 3 (最佳)"},
+                {"value": "gpt4o", "label": "GPT-4o (稳定)"},
+                {"value": "mai1", "label": "MAI-Image-1 (备用)"}
+            ],
+            "order": 2
+        },
+        "default_aspect": {
+            "type": "select",
+            "label": "默认比例 (Aspect Ratio)",
+            "options": [
+                {"value": "square", "label": "1:1 (正方形)"},
+                {"value": "landscape", "label": "16:9 (横屏)"},
+                {"value": "portrait", "label": "9:16 (竖屏)"}
+            ],
+            "order": 3
+        }
+    }
 }
